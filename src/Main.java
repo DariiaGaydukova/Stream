@@ -32,12 +32,11 @@ public class Main {
         System.out.println(conscripts);
 
 
-        List<String> workers = persons.stream()
+        List<Person> workers = persons.stream()
                 .filter(person -> person.getEducation() == Education.HIGHER)
                 .filter(person -> person.getAge() > 18)
                 .filter(person -> person.getAge() < maxWorkerAge(person.getSex()))
                 .sorted(Comparator.comparing(Person::getFamily))
-                .map(Person::getFamily)
                 .collect(Collectors.toList());
         System.out.println(workers);
 
